@@ -70,7 +70,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dmenu_nb, "-nf", dmenu_nf, "-sb", dmenu_sb, "-sf", dmenu_sf, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "urxvt", NULL };
 
 static const char *incaudio[] = { "amixer", "-q", "sset", "Master", "2+", NULL };
 static const char *decaudio[] = { "amixer", "-q", "sset", "Master", "2-", NULL };
