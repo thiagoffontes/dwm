@@ -8,17 +8,16 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "xft:Dejavu Sans Mono:pixelsize=14" };
-static const char dmenufont[]       = "xft:Dejavu Sans Mono:pixelsize=14";
+static char font[]		    = "monospace:size=10";
+static const char *fonts[]          = { font };
+static char dmenufont[]             = "monospace:size=10";
 
-
-static char normfg[]         = "#311f3a";
-//static char normbg[]         = "#f1e0e5";
-static char normbg[]	     = "#000000";
-static char normborder[]     = "#a89ca0";
-static char selfg[]          = "#f1e0e5";
-static char selbg[]          = "#311f3a";
-static char selborder[]      = "#f1e0e5";
+static char normfg[]         = "#bbbbbb";
+static char normbg[]	     = "#222222";
+static char normborder[]     = "#444444";
+static char selfg[]          = "#eeeeee";
+static char selbg[]          = "#005577";
+static char selborder[]      = "#005577";
 
 //static const char dmenu_nf[]        = "#f1e0e5";
 //static const char dmenu_nb[]        = "#311f3a";
@@ -78,6 +77,8 @@ static const char *decaudio[] = { "amixer", "-q", "sset", "Master", "2-", NULL }
 
 
 ResourcePref resources[] = {
+	{ "font",		STRING,		&font },
+	{ "dmenufont",		STRING,		&dmenufont },
 	{ "normfg",		STRING,		&normfg },
 	{ "normbg", 		STRING,		&normbg },
 	{ "normborder",		STRING,		&normborder },
