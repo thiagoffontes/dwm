@@ -3,7 +3,7 @@
 
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -12,21 +12,22 @@ static const char *fonts[]          = { "xft:Dejavu Sans Mono:pixelsize=14" };
 static const char dmenufont[]       = "xft:Dejavu Sans Mono:pixelsize=14";
 
 
-static const char norm_fg[]         = "#311f3a";
-static const char norm_bg[]         = "#f1e0e5";
-static const char norm_border[]     = "#a89ca0";
-static const char sel_fg[]          = "#f1e0e5";
-static const char sel_bg[]          = "#311f3a";
-static const char sel_border[]      = "#f1e0e5";
+static char normfg[]         = "#311f3a";
+//static char normbg[]         = "#f1e0e5";
+static char normbg[]	     = "#000000";
+static char normborder[]     = "#a89ca0";
+static char selfg[]          = "#f1e0e5";
+static char selbg[]          = "#311f3a";
+static char selborder[]      = "#f1e0e5";
 
-static const char dmenu_nf[]        = "#f1e0e5";
-static const char dmenu_nb[]        = "#311f3a";
-static const char dmenu_sf[]        = "#311f3a";
-static const char dmenu_sb[]        = "#f1e0e5";
+//static const char dmenu_nf[]        = "#f1e0e5";
+//static const char dmenu_nb[]        = "#311f3a";
+//static const char dmenu_sf[]        = "#311f3a";
+//static const char dmenu_sb[]        = "#f1e0e5";
 
-static const char *colors[][3]      = {
-	[SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // the unfocused win
-	[SchemeSel]  = { sel_fg,      sel_bg,    sel_border },  // the focused win
+static char *colors[][3]      = {
+	[SchemeNorm] = { normfg,     normbg,   normborder }, // the unfocused win
+	[SchemeSel]  = { selfg,      selbg,    selborder },  // the focused win
 };
 
 
@@ -69,11 +70,22 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dmenu_nb, "-nf", dmenu_nf, "-sb", dmenu_sb, "-sf", dmenu_sf, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normfg, "-nf", normbg, "-sb", normbg, "-sf", normfg, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
 static const char *incaudio[] = { "amixer", "-q", "sset", "Master", "2+", NULL };
 static const char *decaudio[] = { "amixer", "-q", "sset", "Master", "2-", NULL };
+
+
+ResourcePref resources[] = {
+	{ "normfg",		STRING,		&normfg },
+	{ "normbg", 		STRING,		&normbg },
+	{ "normborder",		STRING,		&normborder },
+	{ "selfg",		STRING,		&selfg	},
+	{ "selbg",		STRING,		&selbg },
+	{ "selborder",		STRING,		&selborder },
+	{ "borderpx",		INTEGER,	&borderpx },
+};
 
 
 static Key keys[] = {
