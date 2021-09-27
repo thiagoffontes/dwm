@@ -75,7 +75,7 @@ static const char *termcmd[]  = { "urxvt", NULL };
 static const char *incaudio[] = { "amixer", "-q", "sset", "Master", "2+", NULL };
 static const char *decaudio[] = { "amixer", "-q", "sset", "Master", "2-", NULL };
 
-static const char *xclipcmd[] = { "maim", "-s", "-u", "|", "xclip", "-selection", "clipboard", "-t", "image/png", "-i"};
+static const char xclipcmd[] = "maim -s -u | xclip -selection clipboard -t image/png -i";
 
 ResourcePref resources[] = {
 	{ "font",		STRING,		&font },
@@ -93,7 +93,7 @@ ResourcePref resources[] = {
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 
-	{ MODKEY|ShiftMask,		XK_s,			spawn,			{.v = xclipcmd } },
+	{ MODKEY|ShiftMask,		XK_s,			spawn,			SHCMD( xclipcmd ) },
 	{ MODKEY,			XK_bracketleft,      	spawn,			{.v = decaudio } },
 	{ MODKEY,			XK_bracketright, 	spawn,			{.v = incaudio } },
 
