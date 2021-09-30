@@ -72,8 +72,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normfg, "-nf", normbg, "-sb", normbg, "-sf", normfg, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
-static const char *incaudio[] = { "amixer", "-q", "sset", "Master", "2+", NULL };
-static const char *decaudio[] = { "amixer", "-q", "sset", "Master", "2-", NULL };
+static const char *incaudio[] = { "pulsemixer", "--change-volume", "+10", NULL };
+static const char *decaudio[] = { "pulsemixer", "--change-volume", "-10", NULL };
 
 static const char xclipcmd[] = "maim -s -u | xclip -selection clipboard -t image/png -i";
 
